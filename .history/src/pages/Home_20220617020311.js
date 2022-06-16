@@ -1,25 +1,21 @@
+/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import MainPageLayout from '../components/MainPageLayout';
 
 function Home() {
   const [input, setInput] = useState('');
-
-  const onSearch = () => {
-    fetch(`https://api.tvmaze.com/search/shows?q=${input}`)
-      .then(r => r.json())
-      .then(result => {
-        console.log(result);
-      });
-  };
-
   const onInputChange = ev => {
     setInput(ev.target.value);
   };
+  const onSearch = () => {
 
   const onKeyDown = ev => {
-    if (ev.keyCode === 13) {
-      onSearch();
+    if   (ev.keyCode==13)
+    {
+      onSearch()
     }
+    console.log(ev.keyCode);
   };
 
   return (
