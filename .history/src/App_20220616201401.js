@@ -27,10 +27,6 @@ function App() {
           <Harshida />
         </Route>
 
-        <Route exact path="/Google">
-          <Google />
-        </Route>
-
         <Route>
           <div>Not found</div>
         </Route>

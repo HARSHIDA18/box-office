@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
@@ -6,8 +5,8 @@ import Navs from './components/Navs';
 // eslint-disable-next-line import/no-unresolved
 import Home from './pages/Home';
 import Starred from './pages/Starred';
+// eslint-disable-next-line no-unused-vars
 import Harshida from './pages/Harshida';
-import Google from './pages/Google';
 
 function App() {
   return (
@@ -21,14 +20,6 @@ function App() {
 
         <Route exact path="/starred">
           <Starred />
-        </Route>
-
-        <Route exact path="/Harshida">
-          <Harshida />
-        </Route>
-
-        <Route exact path="/Google">
-          <Google />
         </Route>
 
         <Route>

@@ -7,7 +7,6 @@ import Navs from './components/Navs';
 import Home from './pages/Home';
 import Starred from './pages/Starred';
 import Harshida from './pages/Harshida';
-import Google from './pages/Google';
 
 function App() {
   return (
@@ -25,10 +24,6 @@ function App() {
 
         <Route exact path="/Harshida">
           <Harshida />
-        </Route>
-
-        <Route exact path="/Google">
-          <Google />
         </Route>
 
         <Route>
