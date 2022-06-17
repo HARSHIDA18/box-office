@@ -5,13 +5,8 @@ import { apiGet } from '../misc/config';
 const reducer = (prevState, action) => {
   switch (action.type) {
     case 'FETCH_SUCCESS': {
-      return { isLoading: false, error: null, show: action.show };
+      return { ...prevState, isLoading: false, error: null, show: action.show };
     }
-
-    case 'FETCH_FAILED': {
-      return { ...prevState, isLoading: false, error: action.error };
-    }
-
     default:
       return prevState;
   }
@@ -20,16 +15,16 @@ const reducer = (prevState, action) => {
 const initialState = {
   show: null,
   isLoading: true,
-  error: null,
+  error: true,
 };
 
 function Show() {
   const { id } = useParams();
 
-  const [{ show, isLoading, error }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  useReducer(reducer, initialState);
+  // const [show, setShow] = useState(null);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -37,12 +32,14 @@ function Show() {
     apiGet(`/shows/${id}?embed[]=seasons&embed[]=cast`)
       .then(results => {
         if (isMounted) {
-          dispatch({ type: 'FETCH_SUCCESS', show: results });
+          setShow(results);
+          setIsLoading(false);
         }
       })
       .catch(err => {
         if (isMounted) {
-          dispatch({ type: 'FETCH_FAILED', error: err.message });
+          setError(err.message);
+          setError(false);
         }
       });
 
@@ -52,15 +49,12 @@ function Show() {
   }, [id]);
 
   console.log('show', show);
-
   if (isLoading) {
-    return <div>Data is being loaded</div>;
+    return <div>Data Is Being Loaded.</div>;
   }
-
   if (error) {
-    return <div>Error occured: {error}</div>;
+    return <div>Error Occured:(error)</div>;
   }
-
   return <div>this is show page</div>;
 }
 

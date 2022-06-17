@@ -7,11 +7,9 @@ const reducer = (prevState, action) => {
     case 'FETCH_SUCCESS': {
       return { isLoading: false, error: null, show: action.show };
     }
-
     case 'FETCH_FAILED': {
       return { ...prevState, isLoading: false, error: action.error };
     }
-
     default:
       return prevState;
   }
@@ -20,16 +18,16 @@ const reducer = (prevState, action) => {
 const initialState = {
   show: null,
   isLoading: true,
-  error: null,
+  error: true,
 };
 
 function Show() {
   const { id } = useParams();
 
-  const [{ show, isLoading, error }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [state, dispatch] = useReducer(reducer, initialState);
+  // const [show, setShow] = useState(null);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -42,7 +40,7 @@ function Show() {
       })
       .catch(err => {
         if (isMounted) {
-          dispatch({ type: 'FETCH_FAILED', error: err.message });
+          dispatch({ type: 'FETCH_FAILED', show: err.message });
         }
       });
 
@@ -50,18 +48,6 @@ function Show() {
       isMounted = false;
     };
   }, [id]);
-
-  console.log('show', show);
-
-  if (isLoading) {
-    return <div>Data is being loaded</div>;
-  }
-
-  if (error) {
-    return <div>Error occured: {error}</div>;
-  }
-
-  return <div>this is show page</div>;
 }
 
 export default Show;
