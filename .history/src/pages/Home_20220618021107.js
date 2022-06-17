@@ -16,10 +16,6 @@ function Home() {
     });
   };
 
-  const onInputChange = ev => {
-    setInput(ev.target.value);
-  };
-
   const onKeyDown = ev => {
     if (ev.keyCode === 13) {
       onSearch();

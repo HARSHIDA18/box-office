@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MainPageLayout from '../components/MainPageLayout';
 import { apiGet } from '../misc/config';
 import ShowGrid from '../components/show/ShowGrid';
@@ -16,6 +16,13 @@ function Home() {
     });
   };
 
+  useEffect(() => {
+    console.log('use effect run');
+
+    return () => {
+      console.log('exit');
+    };
+  }, []);
   const onInputChange = ev => {
     setInput(ev.target.value);
   };
