@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MainPageLayout from '../components/MainPageLayout';
 import { apiGet } from '../misc/config';
 
-function Home() {
+const Home = () => {
   const [input, setInput] = useState('');
   const [results, setResults] = useState(null);
 
@@ -54,6 +54,6 @@ function Home() {
       {renderResults()}
     </MainPageLayout>
   );
-}
+};
 
 export default Home;

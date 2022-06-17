@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import MainPageLayout from '../components/MainPageLayout';
-import { apiGet } from '../misc/config';
 
 function Home() {
   const [input, setInput] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [results, setResults] = useState(null);
 
   const onSearch = () => {
-    apiGet(`/search/shows?q=${input}`).then(result => {
-      setResults(result);
-    });
+    fetch(`https://api.tvmaze.com/search/shows?q=${input}`)
+      .then(r => r.json())
+      .then(result => {
+        setResults(result);
+        console.log(result);
+      });
   };
 
   const onInputChange = ev => {
@@ -21,25 +24,21 @@ function Home() {
       onSearch();
     }
   };
-
   const renderResults = () => {
     if (results && results.length === 0) {
-      return <div>No results</div>;
+      return <div>No Results</div>;
     }
-
     if (results && results.length > 0) {
       return (
         <div>
           {results.map(item => (
-            <div key={item.show.id}>{item.show.name}</div>
+            <div key={item.show.name}>(item.show.name)</div>
           ))}
         </div>
       );
     }
-
     return null;
   };
-
   return (
     <MainPageLayout>
       <input

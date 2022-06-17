@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import MainPageLayout from '../components/MainPageLayout';
+// eslint-disable-next-line no-unused-vars
 import { apiGet } from '../misc/config';
 
 function Home() {
   const [input, setInput] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [results, setResults] = useState(null);
 
   const onSearch = () => {
-    apiGet(`/search/shows?q=${input}`).then(result => {
+    apiGet(`search/shows?q=${input}`).then(result => {
       setResults(result);
+      console.log(result);
     });
   };
 
@@ -21,12 +24,10 @@ function Home() {
       onSearch();
     }
   };
-
   const renderResults = () => {
     if (results && results.length === 0) {
-      return <div>No results</div>;
+      return <div>No Results</div>;
     }
-
     if (results && results.length > 0) {
       return (
         <div>
@@ -36,10 +37,8 @@ function Home() {
         </div>
       );
     }
-
     return null;
   };
-
   return (
     <MainPageLayout>
       <input
