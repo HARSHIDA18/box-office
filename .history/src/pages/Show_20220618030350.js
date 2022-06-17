@@ -28,7 +28,7 @@ const initialState = {
   error: null,
 };
 
-function Show() {
+const Show = () => {
   const { id } = useParams();
 
   const [{ show, isLoading, error }, dispatch] = useReducer(
@@ -94,6 +94,6 @@ function Show() {
       </div>
     </div>
   );
-}
+};
 
 export default Show;
