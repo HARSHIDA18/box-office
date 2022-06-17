@@ -6,7 +6,7 @@ import ShowMainData from '../components/show/ShowMainData';
 import Details from '../components/show/Details';
 import Seasons from '../components/show/Seasons';
 import Cast from '../components/show/Cast';
-import { ShowPageWrapper, InfoBlock } from './Show.Styled';
+import { ShowPageWrapper, InfoBlock } from './Show.styled';
 
 const reducer = (prevState, action) => {
   switch (action.type) {
@@ -29,7 +29,7 @@ const initialState = {
   error: null,
 };
 
-function Show() {
+const Show = () => {
   const { id } = useParams();
 
   const [{ show, isLoading, error }, dispatch] = useReducer(
@@ -95,6 +95,6 @@ function Show() {
       </InfoBlock>
     </ShowPageWrapper>
   );
-}
+};
 
 export default Show;
