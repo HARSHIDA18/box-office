@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { StyledShowCard } from './ShowCard.styled';
 
-function ShowCard({ id, image, name, summary }) {
+const ShowCard = ({ id, image, name, summary }) => {
   const summaryAsText = summary
     ? `${summary.split(' ').slice(0, 10).join(' ').replace(/<.+?>/g, '')}...`
     : 'No description';
@@ -24,6 +24,6 @@ function ShowCard({ id, image, name, summary }) {
       </div>
     </StyledShowCard>
   );
-}
+};
 
 export default ShowCard;

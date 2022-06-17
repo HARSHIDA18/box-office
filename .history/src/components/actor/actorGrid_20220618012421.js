@@ -4,7 +4,7 @@ import ActorCard from './ActorCard';
 import IMAGE_NOT_FOUND from '../../images/not-found.png';
 import { FlexGrid } from '../styled';
 
-function ActorGrid({ data }) {
+const ActorGrid = ({ data }) => {
   return (
     <FlexGrid>
       {data.map(({ person }) => (
@@ -20,6 +20,6 @@ function ActorGrid({ data }) {
       ))}
     </FlexGrid>
   );
-}
+};
 
 export default ActorGrid;

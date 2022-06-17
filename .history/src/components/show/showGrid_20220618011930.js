@@ -5,7 +5,7 @@ import { FlexGrid } from '../styled';
 
 import IMAGE_NOT_FOUND from '../../images/not-found.png';
 
-function ShowGrid({ data }) {
+const ShowGrid = ({ data }) => {
   return (
     <FlexGrid>
       {data.map(({ show }) => (
@@ -19,6 +19,6 @@ function ShowGrid({ data }) {
       ))}
     </FlexGrid>
   );
-}
+};
 
 export default ShowGrid;
