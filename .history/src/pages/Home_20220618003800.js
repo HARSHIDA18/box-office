@@ -4,7 +4,7 @@ import { apiGet } from '../misc/config';
 import ShowGrid from '../components/show/ShowGrid';
 import ActorGrid from '../components/actor/ActorGrid';
 
-function Home() {
+const Home = () => {
   const [input, setInput] = useState('');
   const [results, setResults] = useState(null);
   const [searchOption, setSearchOption] = useState('shows');
@@ -87,6 +87,6 @@ function Home() {
       {renderResults()}
     </MainPageLayout>
   );
-}
+};
 
 export default Home;
