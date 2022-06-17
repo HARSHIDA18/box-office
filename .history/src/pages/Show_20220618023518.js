@@ -14,16 +14,15 @@ function Show() {
 
     apiGet(`/shows/${id}?embed[]=seasons&embed[]=cast`)
       .then(results => {
+        setTimeout(() => {}, 2000);
         if (isMounted) {
           setShow(results);
           setIsLoading(false);
         }
       })
       .catch(err => {
-        if (isMounted) {
-          setError(err.message);
-          setError(false);
-        }
+        setError(err.message);
+        setError(false);
       });
 
     return () => {

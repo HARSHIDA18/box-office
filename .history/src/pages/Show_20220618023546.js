@@ -14,6 +14,7 @@ function Show() {
 
     apiGet(`/shows/${id}?embed[]=seasons&embed[]=cast`)
       .then(results => {
+        setTimeout(() => {}, 2000);
         if (isMounted) {
           setShow(results);
           setIsLoading(false);
