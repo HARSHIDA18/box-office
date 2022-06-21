@@ -4,15 +4,14 @@ import { apiGet } from '../misc/config';
 import ShowGrid from '../components/show/ShowGrid';
 import ActorGrid from '../components/actor/ActorGrid';
 
-function Home() {
+const Home = () => {
   const [input, setInput] = useState('');
-  const [results] = useState(null);
+  const [results, Results] = useState(null);
   const [searchOption, setSearchOption] = useState('shows');
 
   const isShowsSearch = searchOption === 'shows';
   const onSearch = () => {
     apiGet(`/search/${searchOption}?q=${input}`).then(result => {
-      // eslint-disable-next-line no-undef
       setResults(result);
     });
   };
@@ -87,6 +86,6 @@ function Home() {
       {renderResults()}
     </MainPageLayout>
   );
-}
+};
 
 export default Home;
