@@ -5,10 +5,10 @@ import ShowMainData from '../components/show/ShowMainData';
 import Details from '../components/show/Details';
 import Seasons from '../components/show/Seasons';
 import Cast from '../components/show/Cast';
-import { ShowPageWrapper, InfoBlock } from './Show.Styled';
+import { ShowPageWrapper, InfoBlock } from './Show.styled';
 import { useShow } from '../misc/custom-hooks';
 
-function Show() {
+const Show = () => {
   const { id } = useParams();
   const { show, isLoading, error } = useShow(id);
 
@@ -50,6 +50,6 @@ function Show() {
       </InfoBlock>
     </ShowPageWrapper>
   );
-}
+};
 
 export default Show;

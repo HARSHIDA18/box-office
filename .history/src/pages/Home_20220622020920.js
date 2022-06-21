@@ -5,7 +5,7 @@ import ShowGrid from '../components/show/ShowGrid';
 import ActorGrid from '../components/actor/ActorGrid';
 import { useLastQuery } from '../misc/custom-hooks';
 
-function Home() {
+const Home = () => {
   const [input, setInput] = useLastQuery();
   const [results, setResults] = useState(null);
   const [searchOption, setSearchOption] = useState('shows');
@@ -87,6 +87,6 @@ function Home() {
       {renderResults()}
     </MainPageLayout>
   );
-}
+};
 
 export default Home;
