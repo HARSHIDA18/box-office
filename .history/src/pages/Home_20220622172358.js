@@ -11,7 +11,7 @@ import {
 } from './Home.styled';
 import CustomRadio from '../components/CustomRadio';
 
-function Home() {
+const Home = () => {
   const [input, setInput] = useLastQuery();
   const [results, setResults] = useState(null);
   const [searchOption, setSearchOption] = useState('shows');
@@ -93,6 +93,6 @@ function Home() {
       {renderResults()}
     </MainPageLayout>
   );
-}
+};
 
 export default Home;
